@@ -10,18 +10,19 @@ PROYECTO-IA/
 │   └── datos_abiertos_vigilancia_dengue_2000_2025_0.csv  # Dataset crudo MINSA (ignorado en Git por tamaño >100 MB)
 ├── Preprocesamiento/
 │   ├── casos_dengue_minsa.ipynb                          # ETL de casos confirmados en Piura (MINSA)
-│   ├── datos_metereologicos_open_meteo.ipynb             # Extracción climática diaria/semanal (Open-Meteo - Estación Miraflores UNP)
+│   ├── datos_meteorologicos_open_meteo.ipynb             # Extracción climática diaria/semanal (Open-Meteo - Estación Miraflores UNP)
 │   ├── temperatura_superficial_mar_peru.ipynb            # Extracción de TSM y anomalía Niño 1+2 (NOAA / ENFEN)
 │   └── integracion_datasets.ipynb                        # Ensamblaje e imputación del DataMart maestro semanal
 ├── Datasets/
 │   ├── casos_dengue_piura_2000_2025_semanal.csv          # Serie semanal de casos confirmados (Piura)
 │   ├── clima_piura_2000_2025_semanal.csv                 # Precipitación acumulada y temperaturas semanales
 │   ├── temperatura_superficial_mar_piura_2000_2025_semanal.csv # TSM y anomalía semanal Niño 1+2
-│   └── df_final.csv                                      # Copia de respaldo del dataset integrado
+│   └── df_final.csv                                      # Dataset maestro integrado
 ├── data/
-│   └── df_final.csv                                      # Dataset maestro integrado listo para modelado
+│   └── df_final.csv                                      # Copia de respaldo del dataset integrado
 ├── notebooks/
-│   └── SimulacionDeTensorDengue.ipynb                    # Transformación a tensor 3D (ventana deslizante) y arquitectura CNN-1D
+│   └── casos_dengue_piura_CNN_1D.ipynb                   # Ingeniería de características, tensores 3D y modelo CNN-1D causal
+├── Articulo_Cientifico_Dengue_Piura_CNN1D.docx           # Artículo científico del proyecto (formato APA 7)
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -50,7 +51,7 @@ PROYECTO-IA/
    ```
 4. Ejecutar en orden los cuadernos de `Preprocesamiento/`:
    1. `casos_dengue_minsa.ipynb`
-   2. `datos_metereologicos_open_meteo.ipynb`
+   2. `datos_meteorologicos_open_meteo.ipynb`
    3. `temperatura_superficial_mar_peru.ipynb`
    4. `integracion_datasets.ipynb`
-5. Ejecutar el cuaderno de modelado en `notebooks/SimulacionDeTensorDengue.ipynb`.
+5. Ejecutar el cuaderno de modelado en `notebooks/casos_dengue_piura_CNN_1D.ipynb` (o subir `Datasets/df_final.csv` directamente a Google Colab para ejecutarlo en la nube).
